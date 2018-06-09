@@ -36,7 +36,7 @@
         data() {
             return {
                 authenticatedUsername: "",
-                Registering: true
+                Registering: false
             };
         },
         methods: {
@@ -47,7 +47,12 @@
                 this.authenticatedUsername = '';
             },
             register(user) {
-                alert(user.login);
+                this.$http.post('participants', user)
+                    .then(response => {
+                        // udało się
+                    })
+                    .catch(response =>{ /* nie udało się */});
+
             }
                   },
 
